@@ -7,9 +7,9 @@ Pré-requis :
 
 
 La création de certificat n'est pas automatisée :
-
+```
 sudo mkdir -p /etc/gitlab/ssl
-
+```
 sudo openssl req -newkey rsa:2048 -nodes -keyout /etc/gitlab/ssl/gitlab.debian.vm.key -x509 -days 365 -out /etc/gitlab/ssl/gitlab.debian.vm.crt
 
 sudo nano /etc/gitlab/gitlab.rb
