@@ -1,0 +1,38 @@
+Vagrant.configure("2") do |config|
+
+  # Configuration de la machine virtuelle
+  config.vm.box = "debian/bullseye64"  # Utilisation de Debian 11 (Bullseye)
+  config.vm.hostname = "gitlab-debian-vm"
+
+  # Configuration du réseau
+  config.vm.network "public_network"
+  config.vm.network "forwarded_port", guest: 80, host: 8080  # Accès à GitLab via l'interface Web
+  config.vm.network "forwarded_port", guest: 22, host: 2222  # SSH pour les dépôts
+  config.vm.network "forwarded_port", guest: 5050, host: 5050  # Container Registry
+
+  # Configuration de la mémoire et des CPUs
+  config.vm.provider "virtualbox" do |vb|
+    vb.memory = "4096"  # 4 GB de RAM
+    vb.cpus = 2  # 2 CPUs
+  end
+
+  # Provisionnement avec un script Shell pour installer GitLab et ses dépendances
+  config.vm.provision "shell", inline: <<-SHELL
+    # Mise à jour des paquets et installation des dépendances nécessaires
+    apt-get update -y
+    apt-get install -y curl openssh-server ca-certificates tzdata perl
+
+    # Ajouter le dépôt GitLab officiel pour Debian
+    curl -sS https://packages.gitlab.com/install/repositories/gitlab/gitlab-ee/script.deb.sh | bash
+
+    # Installer GitLab Community Edition (ou GitLab Enterprise si nécessaire)
+    EXTERNAL_URL="http://gitlab.debian.vm" apt-get install -y gitlab-ee
+
+    # Configuration du GitLab Container Registry
+    sed -i "s/# registry_external_url 'https:\/\/registry.example.com'/registry_external_url 'http:\/\/gitlab.debian.vm:5050'/g" /etc/gitlab/gitlab.rb
+
+    # Reconfiguration de GitLab pour appliquer les modifications
+    gitlab-ctl reconfigure
+  SHELL
+
+end
