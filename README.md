@@ -8,25 +8,34 @@ ThomasB / MaxenceP / AstinL
 - VirtualBox : Utilisé comme fournisseur de machine virtuelle.
 - Accès à Internet : Pour télécharger GitLab et ses dépendances.
 
-## Axe d'améliorations :
 
-La création de certificat auto signé n'est pas automatisée, il faut donc faire ces manipulations :
+## Installation
+
+Danbs le dossier voulu executer :
 ```
-sudo mkdir -p /etc/gitlab/ssl
+vagrant init
 ```
+Cela créer le vagrant file. Remplacer son contenu avec le notre.
+
+Afin de l'executer nous faisons un : 
 ```
-sudo openssl req -newkey rsa:2048 -nodes -keyout /etc/gitlab/ssl/gitlab.debian.vm.key -x509 -days 365 -out /etc/gitlab/ssl/gitlab.debian.vm.crt
+vagrant up
 ```
+
+On peut se connecter sur la machine avec un 
 ```
-sudo nano /etc/gitlab/gitlab.rb
+vagrant ssh
 ```
+Pour se connecter au Git nous ouvrons notre navigateur et allons sur :
+
+localhost:8080
+
+Le Git peut mettre quelques minutes à demarrer.
+
+Les logins par défaut sont root et pour le mot de passe nous faisons :
 ```
-nginx['ssl_certificate'] = "/etc/gitlab/ssl/gitlab.debian.vm.crt"
-nginx['ssl_certificate_key'] = "/etc/gitlab/ssl/gitlab.debian.vm.key"
+sudo cat /etc/gitlab/initial_root_password
 ```
-```
-sudo gitlab-ctl reconfigure
-```
-```
-sudo gitlab-ctl restart
-```
+Ceci est un mot de passe éphémère, il faudra le changer par la suite.
+
+
