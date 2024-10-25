@@ -45,13 +45,16 @@ Il fallait également fournir un scrpt d'initialisation des runners. N'ayant pas
 
 Aller dans Settings -> CI/CD -> Runners
 Cliquer sur "New project Runner"
+
 ![image](https://github.com/user-attachments/assets/6ea23761-b88a-4fd9-bdad-5db6f7ddf9ba)
 
 Ajouter des tags et cliquer la case "Run Untagged jobs"
 Cliquer sur create runner
+
 ![image](https://github.com/user-attachments/assets/db647ad7-24cc-4da3-a755-bf12358409be)
 
  - Si "plantage" ajouter le port à l'URL pour afficher les détails du runner et le token -
+ - 
 ![image](https://github.com/user-attachments/assets/d6cb20d0-8993-4ee4-bef4-400632616e18)
 
 Après quelques lignes de commandes, nous avons notre runner fonctionnel : 
