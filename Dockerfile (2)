@@ -1,0 +1,44 @@
+FROM ubuntu:latest
+
+# Installation des dépendances
+RUN apt-get update -y && apt-get install -y \
+    pandoc \
+    wget \
+    nginx \
+    && rm -rf /var/lib/apt/lists/*
+
+# Configuration du répertoire de travail
+WORKDIR /app
+
+# Copie des fichiers du projet
+COPY . /app/
+
+# Création du dossier html
+RUN mkdir -p /app/html
+
+# Afficher le contenu du répertoire pour debug
+RUN ls -la /app
+
+# Conversion du markdown en HTML sans template pour le moment
+RUN pandoc -s index.md -o index.html
+
+# Configuration de nginx
+RUN echo 'server { \
+    listen 80; \
+    location / { \
+        root /app; \
+        index index.html; \
+    } \
+}' > /etc/nginx/sites-available/default
+
+# Exposition du port
+EXPOSE 80
+
+# Création du script de démarrage
+RUN echo '#!/bin/bash\nnginx -g "daemon off;"' > /app/start.sh
+
+# Rendre le script exécutable
+RUN chmod +x /app/start.sh
+
+# Commande de démarrage
+CMD ["/app/start.sh"]
