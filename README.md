@@ -54,5 +54,10 @@ Cliquer sur create runner
  - Si "plantage" ajouter le port à l'URL pour afficher les détails du runner et le token -
 ![image](https://github.com/user-attachments/assets/d6cb20d0-8993-4ee4-bef4-400632616e18)
 
+Après quelques lignes de commandes, nous avons notre runner fonctionnel : 
+![image](https://github.com/user-attachments/assets/2157dc87-f5db-4613-bca1-3b597c4caacd)
+----
+Pipeline fonctionnelle : 
+![image](https://github.com/user-attachments/assets/eca65ebd-0e1e-4ec8-a7b2-b6159fb2decc)
 
 
