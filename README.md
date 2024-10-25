@@ -39,7 +39,7 @@ sudo cat /etc/gitlab/initial_root_password
 Ceci est un mot de passe éphémère, il faudra le changer par la suite (utiliser la commande : sudo gitlab-rake "gitlab:password:reset" ).
 ```
 ```
-| ATELIER 2 |
+ATELIER 2
 Nous avons fournit au sein du repository, les fichiers yml et dockerfile. 
 Il fallait également fournir un scrpt d'initialisation des runners. N'ayant pas fait de scripts, nous allons décrire étape par étape avec des illustrations ce que nous avons fait.
 
@@ -59,5 +59,19 @@ Après quelques lignes de commandes, nous avons notre runner fonctionnel :
 ----
 Pipeline fonctionnelle : 
 ![image](https://github.com/user-attachments/assets/eca65ebd-0e1e-4ec8-a7b2-b6159fb2decc)
+
+-----------------
+ATELIER 3
+
+Smoke Test Job : 
+![image](https://github.com/user-attachments/assets/e8647997-6e56-4a96-9d77-9527b1577c2d)
+
+HTML-Validation-Job : 
+![image](https://github.com/user-attachments/assets/1e00e871-dc5c-43f7-b0fb-75c1f7bbde18)
+
+Pipeline atelier 3 : 
+![image](https://github.com/user-attachments/assets/e896058f-015d-430f-a93d-14ee5d993e98)
+
+
 
 
