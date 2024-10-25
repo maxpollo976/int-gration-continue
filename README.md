@@ -37,5 +37,22 @@ Les logins par défaut sont root et pour le mot de passe nous faisons :
 sudo cat /etc/gitlab/initial_root_password
 ```
 Ceci est un mot de passe éphémère, il faudra le changer par la suite (utiliser la commande : sudo gitlab-rake "gitlab:password:reset" ).
+```
+```
+| ATELIER 2 |
+Nous avons fournit au sein du repository, les fichiers yml et dockerfile. 
+Il fallait également fournir un scrpt d'initialisation des runners. N'ayant pas fait de scripts, nous allons décrire étape par étape avec des illustrations ce que nous avons fait.
+
+Aller dans Settings -> CI/CD -> Runners
+Cliquer sur "New project Runner"
+![image](https://github.com/user-attachments/assets/6ea23761-b88a-4fd9-bdad-5db6f7ddf9ba)
+
+Ajouter des tags et cliquer la case "Run Untagged jobs"
+Cliquer sur create runner
+![image](https://github.com/user-attachments/assets/db647ad7-24cc-4da3-a755-bf12358409be)
+
+ - Si "plantage" ajouter le port à l'URL pour afficher les détails du runner et le token -
+![image](https://github.com/user-attachments/assets/d6cb20d0-8993-4ee4-bef4-400632616e18)
+
 
 
