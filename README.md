@@ -3,7 +3,7 @@
 
 ThomasB / MaxenceP / AstinL
 
-#ATELIER 1
+# ATELIER 1
 ## Prérequis
 
 - Vagrant : Assurez-vous que Vagrant est installé sur votre machine.
@@ -63,6 +63,19 @@ Il fallait également fournir un scrpt d'initialisation des runners. N'ayant pas
 ----
 ## Pipeline fonctionnelle : 
 ![image](https://github.com/user-attachments/assets/eca65ebd-0e1e-4ec8-a7b2-b6159fb2decc)
+
+Voici également la partie du code avec le registry que nous n'avons pas dans notre fichier pipeline yml : 
+```
+    # Se connecter au GitLab Registry
+    - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
+    # Construire l'image Docker
+    - docker build -t $IMAGE_NAME:latest .
+    # Pousser l'image dans le GitLab Registry
+    - docker push $IMAGE_NAME:latest
+    - echo "Docker image pushed to the GitLab registry."
+
+unit-test-job:   # This job runs in the test stage.
+```
 
 -----------------
 # ATELIER 3
