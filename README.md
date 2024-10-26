@@ -3,6 +3,7 @@
 
 ThomasB / MaxenceP / AstinL
 
+#ATELIER 1
 ## Prérequis
 
 - Vagrant : Assurez-vous que Vagrant est installé sur votre machine.
@@ -41,8 +42,9 @@ Ceci est un mot de passe éphémère, il faudra le changer par la suite (utilise
 ```
 ```
 # ATELIER 2
-** Nous avons fournit au sein du repository, les fichiers yml et dockerfile. **
-** Il fallait également fournir un scrpt d'initialisation des runners. N'ayant pas fait de scripts, nous allons décrire étape par étape avec des illustrations ce que nous avons fait. **
+Nous avons fournit au sein du repository, les fichiers yml et dockerfile. 
+Ces derniers sont intitulés "Dockerfile (2)" et "gitlab-ci.yml".
+Il fallait également fournir un scrpt d'initialisation des runners. N'ayant pas fait de scripts, nous allons décrire étape par étape avec des illustrations ce que nous avons fait. 
 
 ## Aller dans Settings -> CI/CD -> Runners
 ## Cliquer sur "New project Runner"
@@ -64,6 +66,8 @@ Ceci est un mot de passe éphémère, il faudra le changer par la suite (utilise
 
 -----------------
 # ATELIER 3
+Nous avons ajouté au repository les nouveaux fichiers dockerfile et yml en supplément de ceux de l'atelier 2.
+Ils sont intitulés : "Dockerfile atelier 3" et "Pipeline atelier 3.yml"
 
 ## Smoke Test Job : 
 ![image](https://github.com/user-attachments/assets/e8647997-6e56-4a96-9d77-9527b1577c2d)
